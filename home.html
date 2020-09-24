@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+  <head>
+    <title>CORONAVIRUS DATA TRACKER</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+
+  <body>
+  <h1>CORONAVIRUS DATA TRACKER APPLICATION</h1>
+  
+  <div class="jumbotron">
+	  <h1 class="display-4" th:text="${sumStat}"></h1>
+	  <p class="lead">Total cases reported by today</p>
+	  <h1 class="display-4" th:text="${newlyCase}"></h1>
+	  <p class="lead">TOTAL NEWLY CASES</p>
+ </div>
+  
+  <div class="container">
+  	<table class="table">
+      <tr>
+        <th>STATE</th>
+        <th>COUNTRY</th>
+        <th>TOTAL LATEST CASE</th>
+        <th>TOTAL PREVIOUS CASE</th>
+      </tr>
+      <tr th:each="stat : ${locationStat}">
+        <td th:text="${stat.state}"></td>
+        <td th:text="${stat.country}">0</td>
+        <td th:text="${stat.latestTotalCase}"></td>
+        <td th:text="${stat.preTotalCase}"></td>
+      </tr>
+    </table>
+  </div>  
+  
+  </body>
+
+</html>
